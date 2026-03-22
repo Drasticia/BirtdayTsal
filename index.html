@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Sayangku 🌹</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="bg"></div>
+<div class="particles" id="ptcl"></div>
+<div class="hearts-bg" id="hbg"></div>
+<div class="floaters" id="floaters"></div>
+
+<div class="screen" id="s-intro">
+  <div class="card">
+    <img src="https://media.giphy.com/v1/gifs/kevinwelsh/l0HlDy9x8FZo0XO1i/giphy.gif" alt="Special Day" style="width:100%; border-radius:12px; margin-bottom:20px;">
+    <h1 style="font-size:2.5em; margin:20px 0;">🌹 Special Day 🎂</h1>
+    <p class="sub" style="font-size:1.1em; margin-bottom:30px;"></p>
+    <button class="cta" onclick="goToQ()">→</button>
+  </div>
+</div>
+
+<div class="screen hidden" id="s-q">
+  <div class="card">
+    <div class="prog-wrap"><div class="prog-fill" id="prog" style="width:0%"></div></div>
+    <p class="q-label" id="qlabel">Pertanyaan 1 dari 4</p>
+    <p class="q-text" id="qtext"></p>
+    <div class="opts" id="opts"></div>
+  </div>
+</div>
+
+<div class="screen hidden" id="s-sp">
+  <div class="card sp-card">
+    <span class="icon">🎵</span>
+    <h1>Lagu Spesial Untukmu</h1>
+    <p class="sub">Putar lagunya — ada pesan manis di halaman berikutnya 💌</p>
+    <div class="sp-wrap">
+      <div class="sp-container">
+        <!-- Player Container -->
+        <div id="player-container" style="width: 100%; border-radius: 16px; overflow: hidden;">
+          <iframe
+            id="spotify-frame"
+            src="https://open.spotify.com/embed-podcast/playlist/35tqa22bS0o4NjbJn5tf1y"
+            width="100%"
+            height="380"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+    <p class="sp-note">▶ Scroll ke atas untuk lihat player dan klik play 🎶</p>
+    <button class="cta" onclick="goMsg()">Baca Pesan Untukmu →</button>
+  </div>
+</div>
+
+<div class="screen hidden" id="s-msg">
+  <div class="card msg-card">
+    <div class="pop">🎂 🌹 🎉</div>
+
+    <h2 class="bday-name">Happy Birthday,<br>Tsal Nastiti Kama Dewi🌸</h2>
+
+    <p class="bday-msg">
+      Hari ini, tanggal yang aku tandai sejak jauh - jauh hari karena ini hari lahirnya orang yang paling berharga, my favorite human, orang terlucu termanis tercantik terhangat, juga yang paling pasti orang yang aku sayang. 💕<br><br>
+      Kamu adalah orang yang bikin semua hari terasa lebih berwarna. Dari tawa kamu, suara kamu, bahkan cara kamu yang bikin aku gemas, semua itu hal - hal yang aku syukuri setiap hari.<br><br>
+      Akhirnya umur kita samaa ehe, tapi aku harap di ulang tahun ini semua hal baik datang ke kamu ga berenti - enti. Semoga kamu selalu dikelilingi kebahagiaan, kesehatan, dan semua impian yang perlahan jadi kenyataan. 🌟<br><br>
+      Oh iyaa, aku cuma mau kamu tau dan pastinya udah tau si kalau aku sayang banget sama kamu. Lebih dari kata - kata yang bisa aku tulis di sini. Semoga aku bisa terus ada di samping kamu, ngelewatin banyak hal bareng, dan banyak bikin memories. Happy birthday, Tsal 🌹
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="sig">-Love, Lendra ehe💌 </p>
+  </div>
+</div>
+
+<script async src="https://open.spotify.com/embed/info/latest/embed.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
