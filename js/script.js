@@ -24,6 +24,7 @@ const QS = [
 // ════════════════════════════════
 
 let pin = "", qi = 0;
+let responses = ["", "", "", ""]; // Track jawaban user
 
 // Particles
 const pc = document.getElementById('ptcl');
@@ -94,6 +95,9 @@ function showQ(){
 function pick(btn){
   document.querySelectorAll('.ob').forEach(b=>b.classList.remove('sel'));
   btn.classList.add('sel');
+  const selectedAnswer = btn.textContent;
+  responses[qi] = selectedAnswer; // Simpan jawaban
+  
   setTimeout(()=>{
     qi++;
     if(qi<QS.length){
@@ -106,7 +110,42 @@ function pick(btn){
 
 function goMsg(){
   go('s-sp','s-msg');
+  
+  // Simpan jawaban ke Supabase via API
+  saveResponses();
+  
   setTimeout(burst,500);
+}
+
+// Function untuk kirim data ke API
+async function saveResponses(){
+  try {
+    const payload = {
+      userName: "Tsal Nastiti Kama Dewi", // Bisa diganti dengan input user
+      question1: responses[0],
+      question2: responses[1],
+      question3: responses[2],
+      question4: responses[3]
+    };
+    
+    const response = await fetch('/api/saveResponse', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+    
+    const data = await response.json();
+    
+    if (data.success) {
+      console.log('✓ Jawaban berhasil tersimpan!', data);
+    } else {
+      console.error('✗ Gagal simpan jawaban:', data.error);
+    }
+  } catch (err) {
+    console.error('Error saat mengirim data:', err);
+  }
 }
 
 function go(from,to){

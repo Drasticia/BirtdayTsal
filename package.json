@@ -1,0 +1,16 @@
+{
+  "name": "birthday-tsal",
+  "version": "1.0.0",
+  "description": "Interactive Birthday Greeting with Supabase Integration",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "18.x"
+  }
+}
