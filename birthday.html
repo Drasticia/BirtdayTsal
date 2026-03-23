@@ -326,7 +326,7 @@
 <div class="screen hidden" id="s-q">
   <div class="card">
     <div class="prog-wrap"><div class="prog-fill" id="prog" style="width:0%"></div></div>
-    <p class="q-label" id="qlabel">Pertanyaan 1 dari 4</p>
+    <p class="q-label" id="qlabel"></p>
     <p class="q-text" id="qtext"></p>
     <div class="opts" id="opts"></div>
   </div>
@@ -507,7 +507,6 @@ function checkPin(){
 // ── Questions ──
 function showQ(){
   const q=QS[qi];
-  document.getElementById('qlabel').textContent=`Pertanyaan ${qi+1} dari ${QS.length}`;
   document.getElementById('prog').style.width=(qi/QS.length*100)+'%';
   document.getElementById('qtext').textContent=q.q;
   const opts=document.getElementById('opts'); opts.innerHTML='';

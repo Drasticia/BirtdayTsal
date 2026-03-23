@@ -149,6 +149,114 @@ body {
   animation: bob 3s ease-in-out infinite;
 }
 
+.intro-card {
+  max-width: 450px;
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-img-wrap {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  box-shadow: 0 16px 48px rgba(0,0,0,.4);
+  animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s both;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.intro-img {
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.intro-title {
+  font-size: 2.8em;
+  font-weight: 600;
+  background: linear-gradient(135deg, #e8a0b0 20%, #d4a96a 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s both;
+}
+
+.intro-subtitle {
+  font-size: 1.2em;
+  color: var(--muted) !important;
+  margin-bottom: 16px !important;
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+  letter-spacing: 0.5px;
+}
+
+.intro-desc {
+  font-size: 0.95em;
+  color: rgba(255,240,244,.6);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+}
+
+.intro-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #c8748e, #e8a0b0);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  font-family: 'Jost', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 16px 40px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 12px 40px rgba(200,116,142,.4);
+  min-height: 56px;
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s both;
+  margin: 0 auto;
+}
+
+.intro-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 16px 60px rgba(200,116,142,.6);
+}
+
+.intro-btn:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+.intro-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.intro-btn:hover .arrow {
+  transform: translateX(6px);
+}
+
 @keyframes bob {
   0%, 100% {
     transform: translateY(0);
@@ -315,7 +423,7 @@ h1 {
   border-color: var(--rose);
 }
 
-/* SPOTIFY */
+/* Spotify */
 .sp-card {
   max-width: 460px;
   position: relative;
@@ -326,12 +434,16 @@ h1 {
   overflow: hidden;
   margin: 18px 0;
   box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(232,160,176,.1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .sp-wrap iframe {
   display: block;
   width: 100% !important;
   height: 380px;
+  min-height: 300px;
   border: none;
   border-radius: 16px;
 }
@@ -339,14 +451,19 @@ h1 {
 .sp-container {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .sp-container iframe {
   display: block;
   width: 100% !important;
   height: 380px;
+  min-height: 300px;
   border: none;
   border-radius: 16px;
 }
@@ -355,6 +472,14 @@ h1 {
   font-size: 12px;
   color: var(--muted);
   margin-bottom: 12px;
+}
+
+.sp-container iframe {
+  display: block;
+  width: 100% !important;
+  min-height: 400px;
+  border: none !important;
+  border-radius: 12px !important;
 }
 
 .play-spotify-mobile {
@@ -596,6 +721,32 @@ h1 {
     margin: auto;
   }
 
+  .intro-card {
+    max-width: 100%;
+  }
+
+  .intro-title {
+    font-size: 2em;
+  }
+
+  .intro-subtitle {
+    font-size: 1em;
+    margin-bottom: 12px !important;
+  }
+
+  .intro-desc {
+    font-size: 0.9em;
+    margin-bottom: 24px;
+  }
+
+  .intro-btn {
+    font-size: 15px;
+    padding: 14px 32px;
+    min-height: 48px;
+    margin: 0 auto !important;
+    display: inline-flex !important;
+  }
+
   h1 {
     font-size: 20px;
     margin-bottom: 4px;
@@ -684,24 +835,30 @@ h1 {
     border-radius: 16px;
     margin: 16px 0;
     box-shadow: 0 16px 40px rgba(0,0,0,.6), 0 0 0 1px rgba(232,160,176,.1);
-    overflow: hidden;
+    overflow: visible;
   }
 
   .sp-wrap iframe {
     width: 100% !important;
-    height: 360px !important;
-    border-radius: 16px;
+    height: 480px !important;
+    min-height: 380px !important;
+    border-radius: 16px !important;
   }
 
   .sp-container {
     width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   .sp-container iframe {
     width: 100% !important;
-    height: 360px !important;
-    border-radius: 16px;
+    height: 480px !important;
+    min-height: 380px !important;
+    border-radius: 16px !important;
   }
 
   .sp-note {
@@ -711,8 +868,10 @@ h1 {
 
   .play-spotify-mobile {
     font-size: 15px;
-    padding: 13px 36px;
+    padding: 13px 24px;
     min-height: 48px;
+    width: 100%;
+    justify-content: center;
   }
 
   .cta {
@@ -810,19 +969,24 @@ h1 {
   }
 
   .sp-wrap iframe {
-    height: 320px !important;
-    border-radius: 14px;
+    height: 420px !important;
+    min-height: 350px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
   }
 
   .sp-container iframe {
-    height: 320px !important;
-    border-radius: 14px;
+    height: 420px !important;
+    min-height: 350px !important;
+    border-radius: 12px !important;
+    width: 100% !important;
   }
 
   .play-spotify-mobile {
     font-size: 14px;
-    padding: 12px 32px;
+    padding: 12px 24px;
     min-height: 44px;
+    width: 100%;
   }
 
   .cta {

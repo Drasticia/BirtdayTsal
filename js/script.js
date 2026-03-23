@@ -78,7 +78,6 @@ function checkPin(){
 // Questions
 function showQ(){
   const q=QS[qi];
-  document.getElementById('qlabel').textContent=`Pertanyaan ${qi+1} dari ${QS.length}`;
   document.getElementById('prog').style.width=(qi/QS.length*100)+'%';
   document.getElementById('qtext').textContent=q.q;
   const opts=document.getElementById('opts');
@@ -134,65 +133,16 @@ function burst(){
   },150);
 }
 
-// Spotify Frame Responsive Handler
-function resizeSpotifyFrame(){
-  const frame=document.getElementById('spotify-frame');
-  if(!frame) return;
-  
-  const w=window.innerWidth;
-  const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  
-  // Show/hide elements based on screen size
-  const playerContainer=document.getElementById('player-container');
-  const mobilePlayBtn=document.getElementById('mobile-play-btn');
-  
-  if(w<=768 && isMobile){
-    // Mobile: show button, hide player
-    if(playerContainer) playerContainer.style.display='none';
-    if(mobilePlayBtn) mobilePlayBtn.style.display='block';
-  } else {
-    // Desktop/responsive: show player
-    if(playerContainer) playerContainer.style.display='block';
-    if(mobilePlayBtn) mobilePlayBtn.style.display='none';
-    
-    let h=380;
-    if(w<=480){
-      h=300;
-    } else if(w<=640){
-      h=340;
-    } else if(w<=768){
-      h=360;
-    }
-    
-    frame.height=h;
-    frame.style.height=h+'px';
-  }
-  
-  // Force Spotify embed to reload
-  setTimeout(()=>{
-    const script=document.createElement('script');
-    script.async=true;
-    script.src='https://open.spotify.com/embed/info/latest/embed.js';
-    (document.body||document.head).appendChild(script);
-  },200);
-}
-
-// Initialize on page load
+// Initialize Spotify embed on page load
 window.addEventListener('load',()=>{
-  setTimeout(resizeSpotifyFrame,500);
-  // Reload Spotify embeds 
+  // Load Spotify embed script
   const script=document.createElement('script');
   script.async=true;
   script.src='https://open.spotify.com/embed/info/latest/embed.js';
-  (document.body||document.head).appendChild(script);
+  document.body.appendChild(script);
 });
 
 function goToQ(){
   go('s-intro','s-q');
   setTimeout(showQ,300);
 }
-
-window.addEventListener('resize',()=>{
-  clearTimeout(window.resizeTimer);
-  window.resizeTimer=setTimeout(resizeSpotifyFrame,300);
-});
