@@ -120,6 +120,8 @@ function goMsg(){
 // Function untuk kirim data ke API
 async function saveResponses(){
   try {
+    console.log("📤 Mengirim jawaban ke database...");
+    
     const payload = {
       userName: "Tsal Nastiti Kama Dewi", // Bisa diganti dengan input user
       question1: responses[0],
@@ -127,6 +129,8 @@ async function saveResponses(){
       question3: responses[2],
       question4: responses[3]
     };
+    
+    console.log("📋 Data yang dikirim:", payload);
     
     const response = await fetch('/api/saveResponse', {
       method: 'POST',
@@ -137,14 +141,18 @@ async function saveResponses(){
     });
     
     const data = await response.json();
+    console.log("📥 Response dari server:", data);
     
     if (data.success) {
-      console.log('✓ Jawaban berhasil tersimpan!', data);
+      console.log('✅ Jawaban berhasil tersimpan!', data);
+      alert('✅ Jawaban tersimpan di database!');
     } else {
-      console.error('✗ Gagal simpan jawaban:', data.error);
+      console.error('❌ Gagal simpan jawaban:', data.error);
+      alert('❌ Error: ' + data.error);
     }
   } catch (err) {
-    console.error('Error saat mengirim data:', err);
+    console.error('❌ Error saat mengirim data:', err);
+    alert('❌ Error: ' + err.message);
   }
 }
 
